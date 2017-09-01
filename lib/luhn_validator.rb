@@ -14,7 +14,7 @@ class LuhnValidator
   attr_reader :account_number, :digits, :control_digit
 
   def luhn_digit
-    control_digit.zero? ? sum % 10 == 0 : (10 - sum % 10)
+    control_digit.zero? ? (sum % 10).zero? : (10 - sum % 10)
   end
 
   def sum
