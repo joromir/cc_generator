@@ -28,9 +28,3 @@ end
 
 valid_number = LuhnValidator.new('79927398713')
 invalid_number = LuhnValidator.new('79927398714')
-
-puts valid_number.valid? # => true
-puts invalid_number.valid? # => false
-
-
-puts LuhnValidator.new('4111111111111111').valid?
