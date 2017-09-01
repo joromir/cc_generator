@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'guard-rspec'
-gem 'pg'
+gem 'sqlite3'
 gem 'reek'
 gem 'rspec'
 gem 'rubocop'
