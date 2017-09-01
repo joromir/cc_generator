@@ -25,6 +25,3 @@ class LuhnValidator
     @operands.reduce(:+)
   end
 end
-
-valid_number = LuhnValidator.new('79927398713')
-invalid_number = LuhnValidator.new('79927398714')
