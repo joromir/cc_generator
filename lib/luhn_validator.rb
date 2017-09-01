@@ -2,8 +2,8 @@
 class LuhnValidator
   def initialize(account_number)
     @account_number = account_number
-    @digits         = account_number.chars.map(&:to_i)
-    @control_digit  = digits.pop
+    @digits         = account_number.chars[0..-2].map(&:to_i)
+    @control_digit  = account_number.chars.last.to_i
   end
 
   def valid?

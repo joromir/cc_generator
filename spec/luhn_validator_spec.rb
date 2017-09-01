@@ -28,6 +28,14 @@ RSpec.describe LuhnValidator do # rubocop:disable Metrics/BlockLength
       end
     end
 
+    context 'when valid bogus cc number is "4200000000000000"' do
+      let(:account_number) { '4200000000000000' }
+
+      it 'evaluates to true' do
+        expect(subject).to be_valid
+      end
+    end
+
     context 'when invalid bogus cc number is "79927398714"' do
       let(:account_number) { '79927398714' }
 
