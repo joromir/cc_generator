@@ -1,3 +1,4 @@
+# https://en.wikipedia.org/wiki/Luhn_algorithm
 class LuhnValidator
   def initialize(account_number)
     @account_number = account_number
