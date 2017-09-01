@@ -19,10 +19,12 @@ class LuhnValidator
   end
 
   def sum
-    @operands ||= digits.reverse.flat_map.with_index do |digit, index|
-      index.even? ? (digit * 2).divmod(10) : digit
-    end
+    @operands ||= begin
+      operands = digits.reverse.flat_map.with_index do |digit, index|
+        index.even? ? (digit * 2).divmod(10) : digit
+      end
 
-    @operands.reduce(:+)
+      operands.reduce(:+)
+    end
   end
 end
