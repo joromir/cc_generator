@@ -1,21 +1,27 @@
 # https://en.wikipedia.org/wiki/Luhn_algorithm
 class LuhnValidator
   def initialize(account_number)
-    @account_number_array = account_number.chars
-    @processable_digits   = @account_number_array[0..-2].map(&:to_i)
-    @control_digit        = @account_number_array.last.to_i
+    @account_number = account_number.chars.map(&:to_i)
   end
 
   def valid?
-    luhn_digit == control_digit
+    luhn_digit == check_digit
   end
 
   private
 
-  attr_reader :processable_digits, :control_digit
+  attr_reader :account_number
+
+  def account_digits
+    account_number[0..-2]
+  end
+
+  def check_digit
+    account_number[-1]
+  end
 
   def luhn_digit
-    control_digit.zero? ? sum % 10 : (10 - sum % 10)
+    check_digit.zero? ? sum % 10 : (10 - sum % 10)
   end
 
   def sum
@@ -23,7 +29,7 @@ class LuhnValidator
   end
 
   def operands
-    processable_digits.reverse.map.with_index do |digit, position|
+    account_digits.reverse.map.with_index do |digit, position|
       position.even? ? (digit * 2).divmod(10).reduce(:+) : digit
     end
   end
