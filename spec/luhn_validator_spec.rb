@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe LuhnValidator do # rubocop:disable Metrics/BlockLength
+RSpec.describe CcGenerator::LuhnValidator do # rubocop:disable Metrics/BlockLength
   describe '#valid?' do
     subject { described_class.new(account_number) }
 
